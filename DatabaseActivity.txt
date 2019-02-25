@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity {
+public class DatabaseActivity extends ActionBarActivity {
     DatabaseHelper myDb;
     EditText editName,editSurname,editMarks ,editTextId;
     Button btnAddData;
@@ -46,9 +46,9 @@ public class MainActivity extends ActionBarActivity {
                     public void onClick(View v) {
                         Integer deletedRows = myDb.deleteData(editTextId.getText().toString());
                         if(deletedRows > 0)
-                            Toast.makeText(MainActivity.this,"Data Deleted",Toast.LENGTH_LONG).show();
+                            Toast.makeText(DatabaseActivity.this,"Data Deleted",Toast.LENGTH_LONG).show();
                         else
-                            Toast.makeText(MainActivity.this,"Data not Deleted",Toast.LENGTH_LONG).show();
+                            Toast.makeText(DatabaseActivity.this,"Data not Deleted",Toast.LENGTH_LONG).show();
                     }
                 }
         );
@@ -62,9 +62,9 @@ public class MainActivity extends ActionBarActivity {
                                 editName.getText().toString(),
                                 editSurname.getText().toString(),editMarks.getText().toString());
                         if(isUpdate == true)
-                            Toast.makeText(MainActivity.this,"Data Update",Toast.LENGTH_LONG).show();
+                            Toast.makeText(DatabaseActivity.this,"Data Update",Toast.LENGTH_LONG).show();
                         else
-                            Toast.makeText(MainActivity.this,"Data not Updated",Toast.LENGTH_LONG).show();
+                            Toast.makeText(DatabaseActivity.this,"Data not Updated",Toast.LENGTH_LONG).show();
                     }
                 }
         );
@@ -78,9 +78,9 @@ public class MainActivity extends ActionBarActivity {
                                 editSurname.getText().toString(),
                                 editMarks.getText().toString() );
                         if(isInserted == true)
-                            Toast.makeText(MainActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
+                            Toast.makeText(DatabaseActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
                         else
-                            Toast.makeText(MainActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
+                            Toast.makeText(DatabaseActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
                     }
                 }
         );
@@ -121,26 +121,4 @@ public class MainActivity extends ActionBarActivity {
         builder.show();
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
